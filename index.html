@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dark Wall</title>
+  <title>DarkWall</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,65 +13,83 @@
   <h1 class="logo">DarkWall</h1>
 
   <div class="nav-actions">
-    <button onclick="toggleThemePanel()">🎨 Tema</button>
-    <button onclick="toggleTextPanel()">✍ Letras</button>
-    <button onclick="logout()">Cerrar sesión</button>
+    <button id="btnTheme">🎨 Tema</button>
+    <button id="btnText">✍ Letras</button>
+    <button id="btnLogout">Cerrar sesión</button>
   </div>
 </header>
 
-<!-- PANEL COLORES -->
+<!-- PANELES -->
 <div id="themePanel" class="panel hidden">
-  <h3>Color de Interfaz</h3>
+  <h3>Color Interfaz</h3>
   <div class="color-grid" id="bgColors"></div>
 </div>
 
 <div id="textPanel" class="panel hidden">
-  <h3>Color del Texto</h3>
+  <h3>Color Texto</h3>
   <div class="color-grid" id="textColors"></div>
 </div>
 
-<!-- CONTENEDOR GENERAL -->
+<!-- LAYOUT -->
 <div class="layout">
 
   <!-- SIDEBAR IZQUIERDO -->
   <aside class="sidebar">
     <h2>Álbumes</h2>
     <div class="albums">
-      <!-- 18 ALBUMES -->
-      <script>
-        for (let i = 1; i <= 18; i++) {
-          document.write(`<div class="album">Año ${i}</div>`);
-        }
-      </script>
+      <!-- 18 BOTONES -->
+      <button class="album">Año 1</button>
+      <button class="album">Año 2</button>
+      <button class="album">Año 3</button>
+      <button class="album">Año 4</button>
+      <button class="album">Año 5</button>
+      <button class="album">Año 6</button>
+      <button class="album">Año 7</button>
+      <button class="album">Año 8</button>
+      <button class="album">Año 9</button>
+      <button class="album">Año 10</button>
+      <button class="album">Año 11</button>
+      <button class="album">Año 12</button>
+      <button class="album">Año 13</button>
+      <button class="album">Año 14</button>
+      <button class="album">Año 15</button>
+      <button class="album">Año 16</button>
+      <button class="album">Año 17</button>
+      <button class="album">Año 18</button>
     </div>
   </aside>
 
-  <!-- MURO CENTRAL -->
+  <!-- FEED -->
   <main class="feed">
 
     <!-- CREAR POST -->
-    <div class="create-post">
+    <section class="create-post">
       <textarea id="postContent" placeholder="¿Qué estás pensando?"></textarea>
-      <button onclick="createPost()">Publicar</button>
-    </div>
+      <button id="btnPost">Publicar</button>
+    </section>
 
     <!-- POSTS -->
-    <div id="posts"></div>
+    <section id="posts"></section>
 
     <!-- GALERÍA -->
     <section class="gallery">
       <h2>Galería</h2>
+
       <div class="gallery-grid">
-        <!-- 30–60 IMÁGENES -->
-        <script>
-          for (let i = 1; i <= 30; i++) {
-            document.write(`
-              <div class="photo">
-                <img src="IMG_20251206_183719.jpg" alt="Kaori1">
-              </div>
-            `);
-          }
-        </script>
+        <!-- 30 + 5 ESPACIOS EXTRA -->
+        <!-- SOLO CAMBIA EL src -->
+        <div class="photo"><img src="IMG_1.jpg"></div>
+        <div class="photo"><img src="IMG_2.jpg"></div>
+        <div class="photo"><img src="IMG_3.jpg"></div>
+        <div class="photo"><img src="IMG_4.jpg"></div>
+        <div class="photo"><img src="IMG_5.jpg"></div>
+
+        <!-- +5 ESPACIOS NUEVOS -->
+        <div class="photo"><img src="IMG_6.jpg"></div>
+        <div class="photo"><img src="IMG_7.jpg"></div>
+        <div class="photo"><img src="IMG_8.jpg"></div>
+        <div class="photo"><img src="IMG_9.jpg"></div>
+        <div class="photo"><img src="IMG_10.jpg"></div>
       </div>
     </section>
 
@@ -80,7 +98,7 @@
   <!-- SIDEBAR DERECHO -->
   <aside class="sidebar right">
     <h2>Estado</h2>
-    <p>Conectado</p>
+    <span class="status online">Conectado</span>
   </aside>
 
 </div>
