@@ -9,13 +9,23 @@ async function loadPosts() {
   const container = document.getElementById("posts");
   container.innerHTML = "";
 
+  if (data.length === 0) {
+    container.innerHTML = `
+      <div class="empty-feed">
+        <p>Aún no hay publicaciones</p>
+        <small>Sé el primero en escribir algo</small>
+      </div>
+    `;
+    return;
+  }
+
   data.forEach(p => {
     container.innerHTML += `
       <article class="post">
         <div class="post-header">
           <strong>Usuario ${p.user_id}</strong>
         </div>
-        <p>${p.content}</p>
+        <p class="post-content">${p.content}</p>
         <div class="post-footer">
           <span>💬 Comentar</span>
           <span>❤️ Me gusta</span>
@@ -53,7 +63,12 @@ async function createPost() {
   }
 
   postContent.value = "";
-  loadPosts();
+  await loadPosts();
+
+  document.querySelector(".feed").scrollTo({
+    top: document.querySelector(".feed").scrollHeight,
+    behavior: "smooth"
+  });
 }
 
 /* COLORES */
