@@ -1,54 +1,33 @@
 const API = "http://localhost:5000/api";
 const token = localStorage.getItem("token");
 
-/* POSTS */
-async function loadPosts() {
-  const res = await fetch(`${API}/posts`);
+async function loadComments() {
+  const res = await fetch(`${API}/comments`);
   const data = await res.json();
 
-  const container = document.getElementById("posts");
-  container.innerHTML = "";
+  const list = document.getElementById("commentsList");
+  list.innerHTML = "";
 
   if (data.length === 0) {
-    container.innerHTML = `
-      <div class="empty-feed">
-        <p>Aún no hay publicaciones</p>
-        <small>Sé el primero en escribir algo</small>
-      </div>
-    `;
+    list.innerHTML = `<p class="empty">Aún no hay comentarios</p>`;
     return;
   }
 
-  data.forEach(p => {
-    container.innerHTML += `
-      <article class="post">
-        <div class="post-header">
-          <strong>Usuario ${p.user_id}</strong>
-        </div>
-        <p class="post-content">${p.content}</p>
-        <div class="post-footer">
-          <span>💬 Comentar</span>
-          <span>❤️ Me gusta</span>
-        </div>
-      </article>
+  data.forEach(c => {
+    list.innerHTML += `
+      <div class="comment">
+        <strong>Usuario ${c.user_id}</strong>
+        <p>${c.content}</p>
+      </div>
     `;
   });
 }
 
-async function createPost() {
-  const content = postContent.value.trim();
+async function createComment() {
+  const content = commentContent.value.trim();
+  if (!content) return alert("No puedes publicar vacío");
 
-  if (!content) {
-    alert("No puedes publicar vacío");
-    return;
-  }
-
-  if (!token) {
-    alert("Sesión no válida");
-    return;
-  }
-
-  const res = await fetch(`${API}/posts`, {
+  await fetch(`${API}/comments`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,45 +36,14 @@ async function createPost() {
     body: JSON.stringify({ content })
   });
 
-  if (!res.ok) {
-    alert("Error al publicar");
-    return;
-  }
-
-  postContent.value = "";
-  await loadPosts();
-
-  document.querySelector(".feed").scrollTo({
-    top: document.querySelector(".feed").scrollHeight,
-    behavior: "smooth"
-  });
+  commentContent.value = "";
+  loadComments();
 }
 
-/* COLORES */
-const colors = ["#8b0000","#1b5e20","#0d47a1","#311b92","#212121"];
-
-function loadColors() {
-  colors.forEach(c => {
-    const b = document.createElement("div");
-    b.style.background = c;
-    b.onclick = () => document.documentElement.style.setProperty("--accent", c);
-    bgColors.appendChild(b);
-
-    const t = document.createElement("div");
-    t.style.background = c;
-    t.onclick = () => document.documentElement.style.setProperty("--text", c);
-    textColors.appendChild(t);
-  });
-}
-
-/* UI */
-btnTheme.onclick = () => themePanel.classList.toggle("hidden");
-btnText.onclick = () => textPanel.classList.toggle("hidden");
+btnComment.onclick = createComment;
 btnLogout.onclick = () => {
   localStorage.removeItem("token");
   location.reload();
 };
-btnPost.onclick = createPost;
 
-loadColors();
-loadPosts();
+loadComments();
