@@ -29,6 +29,7 @@
 
 <div class="layout">
 
+  <!-- SIDEBAR IZQUIERDO -->
   <aside class="sidebar">
     <h2>Álbumes</h2>
     <div class="albums">
@@ -53,43 +54,21 @@
     </div>
   </aside>
 
+  <!-- FEED -->
   <main class="feed">
 
+    <!-- CREAR POST -->
     <section class="create-post">
       <textarea id="postContent" placeholder="¿Qué estás pensando?"></textarea>
       <button id="btnPost">Publicar</button>
     </section>
 
-    <section id="posts" class="posts-feed"></section>
-
-    <hr class="feed-divider">
-
-    <section class="gallery">
-      <h2>Galería</h2>
-      <div class="gallery-grid">
-        <div class="photo"><img src="IMG_1.jpg"></div>
-        <div class="photo"><img src="IMG_2.jpg"></div>
-        <div class="photo"><img src="IMG_3.jpg"></div>
-        <div class="photo"><img src="IMG_4.jpg"></div>
-        <div class="photo"><img src="IMG_5.jpg"></div>
-
-        <div class="photo"><img src="IMG_6.jpg"></div>
-        <div class="photo"><img src="IMG_7.jpg"></div>
-        <div class="photo"><img src="IMG_8.jpg"></div>
-        <div class="photo"><img src="IMG_9.jpg"></div>
-        <div class="photo"><img src="IMG_10.jpg"></div>
+    <!-- POSTS -->
+    <section id="posts" class="posts-feed">
+      <div class="empty-feed">
+        <p>Aún no hay publicaciones</p>
+        <small>Sé el primero en escribir algo</small>
       </div>
     </section>
 
-  </main>
-
-  <aside class="sidebar right">
-    <h2>Estado</h2>
-    <span class="status online">Conectado</span>
-  </aside>
-
-</div>
-
-<script src="app.js"></script>
-</body>
-</html>
+    <hr class
