@@ -1,25 +1,27 @@
 const API = "http://localhost:5000/api";
 const token = localStorage.getItem("token");
 
-/* POSTS */
+/* ========= POSTS ========= */
 async function loadPosts() {
   const res = await fetch(`${API}/posts`);
-  const data = await res.json();
+  const posts = await res.json();
+
   const container = document.getElementById("posts");
   container.innerHTML = "";
 
-  data.forEach(p => {
+  posts.forEach(p => {
     container.innerHTML += `
-      <div class="post">
+      <article class="post">
         <p>${p.content}</p>
-        <small>Usuario ${p.user_id}</small>
-      </div>
+        <small>Usuario #${p.user_id}</small>
+      </article>
     `;
   });
 }
 
 async function createPost() {
-  const content = document.getElementById("postContent").value;
+  const content = postContent.value.trim();
+  if (!content) return;
 
   await fetch(`${API}/posts`, {
     method: "POST",
@@ -30,47 +32,39 @@ async function createPost() {
     body: JSON.stringify({ content })
   });
 
-  document.getElementById("postContent").value = "";
+  postContent.value = "";
   loadPosts();
 }
 
-/* COLORES */
+/* ========= COLORES ========= */
 const colors = [
-  "#8b0000","#006400","#0b3d91","#4b0082","#2f4f4f",
-  "#800000","#013220","#191970","#3b0a45","#1c1c1c",
-  "#004d40","#263238","#1a237e","#311b92","#880e4f",
-  "#37474f","#1b5e20","#3e2723","#212121","#000000"
+  "#8b0000","#1b5e20","#0d47a1","#311b92","#263238",
+  "#4a148c","#004d40","#3e2723","#212121","#000000"
 ];
 
 function loadColors() {
-  const bg = document.getElementById("bgColors");
-  const text = document.getElementById("textColors");
-
   colors.forEach(c => {
-    const div = document.createElement("div");
-    div.style.background = c;
-    div.onclick = () => document.documentElement.style.setProperty("--accent", c);
-    bg.appendChild(div);
+    const bg = document.createElement("div");
+    bg.style.background = c;
+    bg.onclick = () => document.documentElement.style.setProperty("--accent", c);
+    bgColors.appendChild(bg);
 
     const t = document.createElement("div");
     t.style.background = c;
     t.onclick = () => document.documentElement.style.setProperty("--text", c);
-    text.appendChild(t);
+    textColors.appendChild(t);
   });
 }
 
-function toggleThemePanel() {
-  document.getElementById("themePanel").classList.toggle("hidden");
-}
-
-function toggleTextPanel() {
-  document.getElementById("textPanel").classList.toggle("hidden");
-}
-
-function logout() {
+/* ========= UI ========= */
+btnTheme.onclick = () => themePanel.classList.toggle("hidden");
+btnText.onclick = () => textPanel.classList.toggle("hidden");
+btnLogout.onclick = () => {
   localStorage.removeItem("token");
   location.reload();
-}
+};
+btnPost.onclick = createPost;
 
+/* INIT */
 loadColors();
 loadPosts();
