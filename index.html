@@ -2,23 +2,89 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dark Clan - Login</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Dark Wall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h2>Dark Clan</h2>
+<!-- NAVBAR -->
+<header class="navbar">
+  <h1 class="logo">DarkWall</h1>
 
-<input id="username" placeholder="Usuario">
-<input id="password" type="password" placeholder="Contraseña">
+  <div class="nav-actions">
+    <button onclick="toggleThemePanel()">🎨 Tema</button>
+    <button onclick="toggleTextPanel()">✍ Letras</button>
+    <button onclick="logout()">Cerrar sesión</button>
+  </div>
+</header>
 
-<button onclick="login()">Entrar</button>
+<!-- PANEL COLORES -->
+<div id="themePanel" class="panel hidden">
+  <h3>Color de Interfaz</h3>
+  <div class="color-grid" id="bgColors"></div>
+</div>
 
-<p>
-  <a href="register.html">Crear cuenta</a>
-</p>
+<div id="textPanel" class="panel hidden">
+  <h3>Color del Texto</h3>
+  <div class="color-grid" id="textColors"></div>
+</div>
 
-<script src="api.js"></script>
-<script src="auth.js"></script>
+<!-- CONTENEDOR GENERAL -->
+<div class="layout">
+
+  <!-- SIDEBAR IZQUIERDO -->
+  <aside class="sidebar">
+    <h2>Álbumes</h2>
+    <div class="albums">
+      <!-- 18 ALBUMES -->
+      <script>
+        for (let i = 1; i <= 18; i++) {
+          document.write(`<div class="album">Año ${i}</div>`);
+        }
+      </script>
+    </div>
+  </aside>
+
+  <!-- MURO CENTRAL -->
+  <main class="feed">
+
+    <!-- CREAR POST -->
+    <div class="create-post">
+      <textarea id="postContent" placeholder="¿Qué estás pensando?"></textarea>
+      <button onclick="createPost()">Publicar</button>
+    </div>
+
+    <!-- POSTS -->
+    <div id="posts"></div>
+
+    <!-- GALERÍA -->
+    <section class="gallery">
+      <h2>Galería</h2>
+      <div class="gallery-grid">
+        <!-- 30–60 IMÁGENES -->
+        <script>
+          for (let i = 1; i <= 30; i++) {
+            document.write(`
+              <div class="photo">
+                <img src="Kaori1.jpg" alt="Kaori1">
+              </div>
+            `);
+          }
+        </script>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SIDEBAR DERECHO -->
+  <aside class="sidebar right">
+    <h2>Estado</h2>
+    <p>Conectado</p>
+  </aside>
+
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
