@@ -8,10 +8,8 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <h1 class="logo">DarkWall</h1>
-
   <div class="nav-actions">
     <button id="btnTheme">🎨 Tema</button>
     <button id="btnText">✍ Letras</button>
@@ -19,7 +17,6 @@
   </div>
 </header>
 
-<!-- PANELES -->
 <div id="themePanel" class="panel hidden">
   <h3>Color Interfaz</h3>
   <div class="color-grid" id="bgColors"></div>
@@ -30,14 +27,11 @@
   <div class="color-grid" id="textColors"></div>
 </div>
 
-<!-- LAYOUT -->
 <div class="layout">
 
-  <!-- SIDEBAR IZQUIERDO -->
   <aside class="sidebar">
     <h2>Álbumes</h2>
     <div class="albums">
-      <!-- 18 BOTONES -->
       <button class="album">Año 1</button>
       <button class="album">Año 2</button>
       <button class="album">Año 3</button>
@@ -59,32 +53,26 @@
     </div>
   </aside>
 
-  <!-- FEED -->
   <main class="feed">
 
-    <!-- CREAR POST -->
     <section class="create-post">
       <textarea id="postContent" placeholder="¿Qué estás pensando?"></textarea>
       <button id="btnPost">Publicar</button>
     </section>
 
-    <!-- POSTS -->
-    <section id="posts"></section>
+    <section id="posts" class="posts-feed"></section>
 
-    <!-- GALERÍA -->
+    <hr class="feed-divider">
+
     <section class="gallery">
       <h2>Galería</h2>
-
       <div class="gallery-grid">
-        <!-- 30 + 5 ESPACIOS EXTRA -->
-        <!-- SOLO CAMBIA EL src -->
         <div class="photo"><img src="IMG_1.jpg"></div>
         <div class="photo"><img src="IMG_2.jpg"></div>
         <div class="photo"><img src="IMG_3.jpg"></div>
         <div class="photo"><img src="IMG_4.jpg"></div>
         <div class="photo"><img src="IMG_5.jpg"></div>
 
-        <!-- +5 ESPACIOS NUEVOS -->
         <div class="photo"><img src="IMG_6.jpg"></div>
         <div class="photo"><img src="IMG_7.jpg"></div>
         <div class="photo"><img src="IMG_8.jpg"></div>
@@ -95,7 +83,6 @@
 
   </main>
 
-  <!-- SIDEBAR DERECHO -->
   <aside class="sidebar right">
     <h2>Estado</h2>
     <span class="status online">Conectado</span>
