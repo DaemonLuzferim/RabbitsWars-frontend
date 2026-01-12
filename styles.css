@@ -1,0 +1,145 @@
+:root {
+  --bg: #0b0b0b;
+  --panel: #121212;
+  --accent: #8b0000;
+  --text: #e0e0e0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 100;
+  box-shadow: 0 0 15px black;
+}
+
+.logo {
+  color: var(--accent);
+}
+
+.nav-actions button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 6px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+.sidebar {
+  background: var(--panel);
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.feed {
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* POSTS */
+.create-post textarea {
+  width: 100%;
+  background: #000;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 10px;
+  height: 80px;
+}
+
+.create-post button {
+  margin-top: 10px;
+  background: var(--accent);
+  border: none;
+  padding: 8px 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.post {
+  background: #000;
+  border: 1px solid #222;
+  margin-top: 20px;
+  padding: 15px;
+  box-shadow: 0 0 10px black;
+}
+
+/* GALERÍA */
+.gallery {
+  margin-top: 40px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.photo img {
+  width: 100%;
+  border-radius: 8px;
+  filter: grayscale(30%);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.photo img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+/* PANELES */
+.panel {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: var(--panel);
+  padding: 15px;
+  border: 1px solid var(--accent);
+  z-index: 200;
+}
+
+.hidden {
+  display: none;
+}
+
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 30px);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-grid div {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
