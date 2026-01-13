@@ -1,17 +1,19 @@
 // ===============================
-// LOGIN
+// AUTH - LOGIN
 // ===============================
+
 async function login() {
   const user = username.value.trim();
   const pass = password.value.trim();
 
+  // Validación básica
   if (!user || !pass) {
     alert("Completa todos los campos");
     return;
   }
 
   try {
-    const res = await fetch(`${API}/login`, {
+    const response = await fetch(`${API}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -22,18 +24,21 @@ async function login() {
       })
     });
 
-    const data = await res.json();
+    const data = await response.json();
 
-    if (res.ok && data.token) {
+    // Login exitoso
+    if (response.ok && data.token) {
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
       window.location.href = "html/muro.html";
-    } else {
-      alert(data.message || "Error de login");
+      return;
     }
 
-  } catch (err) {
-    console.error(err);
-    alert("Error de conexión con el servidor");
+    // Error controlado del backend
+    alert(data.message || "Credenciales incorrectas");
+
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("No se pudo conectar con el servidor");
   }
 }
