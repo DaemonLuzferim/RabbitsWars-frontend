@@ -12,7 +12,7 @@
   <h1 class="logo">DarkWall</h1>
 
   <div class="nav-actions">
-    <span class="status online">🟢 Conectado</span>
+    <span class="status">🔴 Desconectado</span>
     <button id="btnAuth">Iniciar sesión</button>
     <button id="btnLogout">Cerrar sesión</button>
   </div>
@@ -75,13 +75,11 @@
 
     <hr class="divider">
 
-    <!-- COMENTARIOS AL FINAL -->
+    <!-- COMENTARIOS -->
     <section class="comments">
       <h2>Notas / Comentarios</h2>
-
       <textarea id="commentContent" placeholder="Escribe lo que quieras..."></textarea>
       <button id="btnComment">Publicar</button>
-
       <div id="commentsList"></div>
     </section>
 
@@ -108,22 +106,22 @@
   <div class="modal-box">
 
     <div class="modal-tabs">
-      <button class="tab active" data-tab="login">Iniciar sesión</button>
-      <button class="tab" data-tab="register">Registrarse</button>
+      <button id="tabLogin" class="tab active">Iniciar sesión</button>
+      <button id="tabRegister" class="tab">Registrarse</button>
     </div>
 
     <!-- LOGIN -->
-    <div class="tab-content active" id="login">
-      <input type="text" id="loginUser" placeholder="Usuario">
-      <input type="password" id="loginPass" placeholder="Contraseña">
-      <button id="btnLogin">Entrar</button>
+    <div id="loginForm" class="tab-content active">
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Contraseña">
+      <button>Entrar</button>
     </div>
 
     <!-- REGISTER -->
-    <div class="tab-content" id="register">
-      <input type="text" id="regUser" placeholder="Usuario">
-      <input type="password" id="regPass" placeholder="Contraseña">
-      <button id="btnRegister">Crear cuenta</button>
+    <div id="registerForm" class="tab-content">
+      <input type="email" id="registerEmail" placeholder="Email">
+      <input type="password" id="registerPassword" placeholder="Contraseña">
+      <button>Crear cuenta</button>
     </div>
 
   </div>
