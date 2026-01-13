@@ -1,0 +1,11 @@
+.ads{
+  display:grid;
+  gap:12px;
+}
+
+.ad{
+  background:#111;
+  padding:10px;
+  border-radius:12px;
+  text-align:center;
+}
