@@ -1,0 +1,123 @@
+:root {
+  --bg: #050505;
+  --panel: #0b0b0b;
+  --border: #300;
+  --accent: crimson;
+  --text: #ddd;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+  background: radial-gradient(circle at top, #120000, #000);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* LOGIN */
+.login-container {
+  width: 340px;
+  margin: 120px auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+  animation: flicker 2s infinite;
+}
+
+.login-container h1 {
+  color: var(--accent);
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #000;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.login-container button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.login-container button:hover {
+  background: #a00000;
+}
+
+/* MENSAJES */
+.success {
+  color: #00ff66;
+  margin-top: 15px;
+}
+
+.error {
+  color: crimson;
+  margin-top: 15px;
+}
+
+/* MENU */
+.menu {
+  text-align: center;
+  margin-top: 120px;
+}
+
+.menu h1 {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.logout {
+  padding: 12px 25px;
+  background: crimson;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background: #a00000;
+}
+
+/* ANIMACIONES */
+@keyframes flicker {
+  0% { box-shadow: 0 0 10px crimson; }
+  50% { box-shadow: 0 0 25px crimson; }
+  100% { box-shadow: 0 0 10px crimson; }
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
