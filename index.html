@@ -10,7 +10,9 @@
 
 <header class="navbar">
   <h1 class="logo">DarkWall</h1>
+
   <div class="nav-actions">
+    <span class="status online">🟢 Conectado</span>
     <button id="btnLogout">Cerrar sesión</button>
   </div>
 </header>
@@ -19,6 +21,7 @@
 
   <!-- SIDEBAR IZQUIERDO -->
   <aside class="sidebar">
+
     <h2>Álbumes</h2>
     <div class="albums">
       <button class="album">Año 1</button>
@@ -26,56 +29,74 @@
       <button class="album">Año 3</button>
       <button class="album">Año 4</button>
       <button class="album">Año 5</button>
+      <button class="album">Año 6</button>
+      <button class="album">Año 7</button>
+      <button class="album">Año 8</button>
+      <button class="album">Año 9</button>
+      <button class="album">Año 10</button>
+      <button class="album">Año 11</button>
+      <button class="album">Año 12</button>
+      <button class="album">Año 13</button>
+      <button class="album">Año 14</button>
+      <button class="album">Año 15</button>
+      <button class="album">Año 16</button>
+      <button class="album">Año 17</button>
+      <button class="album">Año 18</button>
     </div>
+
+    <!-- GALERÍA IZQUIERDA -->
+    <div class="side-gallery">
+      <h3>Fotos</h3>
+      <div class="side-grid">
+        <img src="IMG_1.jpg">
+        <img src="IMG_2.jpg">
+        <img src="IMG_3.jpg">
+        <img src="IMG_4.jpg">
+      </div>
+    </div>
+
   </aside>
 
   <!-- CONTENIDO CENTRAL -->
   <main class="content">
 
-    <!-- GALERÍA -->
     <section class="gallery">
-      <h2>Galería</h2>
+      <h2>Galería Principal</h2>
 
       <div class="gallery-grid">
-        <div class="photo"><img src="IMG_20251206_183719.jpg"></div>
+        <div class="photo"><img src="IMG_1.jpg"></div>
         <div class="photo"><img src="IMG_2.jpg"></div>
         <div class="photo"><img src="IMG_3.jpg"></div>
         <div class="photo"><img src="IMG_4.jpg"></div>
-        <div class="photo"><img src="IMG_20251206_183719.jpg"></div>
-
-        <!-- ESPACIO PARA 5 MÁS -->
-        <div class="photo placeholder">+</div>
-        <div class="photo placeholder">+</div>
-        <div class="photo placeholder">+</div>
-        <div class="photo placeholder">+</div>
-        <div class="photo placeholder">+</div>
+        <div class="photo"><img src="IMG_5.jpg"></div>
       </div>
     </section>
 
     <hr class="divider">
 
-    <!-- COMENTARIOS / NOTAS (SIEMPRE AL FINAL) -->
+    <!-- COMENTARIOS AL FINAL -->
     <section class="comments">
-
       <h2>Notas / Comentarios</h2>
 
-      <div class="create-comment">
-        <textarea id="commentContent" placeholder="Escribe lo que quieras..."></textarea>
-        <button id="btnComment">Publicar</button>
-      </div>
+      <textarea id="commentContent" placeholder="Escribe lo que quieras..."></textarea>
+      <button id="btnComment">Publicar</button>
 
-      <div id="commentsList" class="comments-list">
-        <p class="empty">Aún no hay comentarios</p>
-      </div>
-
+      <div id="commentsList"></div>
     </section>
 
   </main>
 
   <!-- SIDEBAR DERECHO -->
   <aside class="sidebar right">
-    <h2>Estado</h2>
-    <span class="status online">Conectado</span>
+
+    <h2>Fotos</h2>
+    <div class="side-grid">
+      <img src="IMG_6.jpg">
+      <img src="IMG_7.jpg">
+      <img src="IMG_8.jpg">
+      <img src="IMG_9.jpg">
+    </div>
+
   </aside>
 
 </div>
