@@ -1,0 +1,39 @@
+:root{
+  --bg:#0d0d0d;
+  --card:#1a1a1a;
+  --accent:#8b0000;
+  --title:#ffffff;
+  --text:#cccccc;
+}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  padding:12px;
+  background:var(--card);
+}
+
+button{
+  background:var(--accent);
+  border:none;
+  padding:8px 14px;
+  color:white;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.feed{padding:12px}
+.post{
+  background:var(--card);
+  margin-bottom:12px;
+  padding:14px;
+  border-radius:12px;
+}
+.post h4{color:var(--title)}
