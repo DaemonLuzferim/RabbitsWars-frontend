@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Darkwell · RabbitPost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         ESTILOS PRINCIPALES
+    ========================= -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="top">
+
+    <!-- =====================================================
+         PARTE 1 · TOPBAR (CONTROLADORES)
+         - NO aplica estilos
+         - SOLO abre paneles
+    ===================================================== -->
+    <header class="topbar">
+
+        <!-- Contenedor principal de todos los dropdowns -->
+        <div class="top-dropdowns">
+            <!-- Botón 1: Personalizar -->
+            <div class="dropdown-btn">
+                <button id="themeBtn" type="button">🎨 Personalizar</button>
+                <div class="dropdown-content">
+                    <button id="btnStyleBtn" type="button">🔘 Botones</button>
+                    <button id="btnOption1" type="button">💡 Opción 1</button>
+                    <button id="btnOption2" type="button">💡 Opción 2</button>
+                    <button id="btnOption3" type="button">💡 Opción 3</button>
+                    <button id="btnOption4" type="button">💡 Opción 4</button>
+                    <button id="btnOption5" type="button">💡 Opción 5</button>
+                </div>
+            </div>
+
+            <!-- Botón 2: Anime -->
+            <div class="dropdown-btn">
+                <button id="animeBtn" type="button">Anime</button>
+                <div class="dropdown-content">
+                    <button type="button">🎬 Opción A1</button>
+                    <button type="button">🎬 Opción A2</button>
+                    <button type="button">🎬 Opción A3</button>
+                </div>
+            </div>
+
+            <!-- Botón 3: Donghua -->
+            <div class="dropdown-btn">
+                <button id="donghuaBtn" type="button">Donghua</button>
+                <div class="dropdown-content">
+                    <button type="button">🎬 Opción D1</button>
+                    <button type="button">🎬 Opción D2</button>
+                    <button type="button">🎬 Opción D3</button>
+                </div>
+            </div>
+
+            <!-- Botón 4: Película -->
+            <div class="dropdown-btn">
+                <button id="movieBtn" type="button">Película</button>
+                <div class="dropdown-content">
+                    <button type="button">🎬 Opción P1</button>
+                    <button type="button">🎬 Opción P2</button>
+                    <button type="button">🎬 Opción P3</button>
+                </div>
+            </div>
+
+            <!-- Botón 5: Páginas -->
+            <div class="dropdown-btn">
+                <button id="pagesBtn" type="button">Páginas</button>
+                <div class="dropdown-content">
+                    <button type="button">📄 Opción Pg1</button>
+                    <button type="button">📄 Opción Pg2</button>
+                    <button type="button">📄 Opción Pg3</button>
+                </div>
+            </div>
+
+            <!-- Botón 6: Perfiles -->
+            <div class="dropdown-btn">
+                <button id="profilesBtn" type="button">Perfiles</button>
+                <div class="dropdown-content">
+                    <button type="button">👤 Opción Pr1</button>
+                    <button type="button">👤 Opción Pr2</button>
+                    <button type="button">👤 Opción Pr3</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- LOGO -->
+        <div class="logo">Darkwell</div>
+
+        <!-- BOTÓN DE EJEMPLO (AFECTADO POR EL PANEL DE BOTONES) -->
+        <button class="login-btn" type="button">
+            Login
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         PARTE 2 · PANEL PERSONALIZAR (GLOBAL)
+         Afecta ÚNICAMENTE:
+         - Fondo general
+         - Títulos (h1–h6)
+         - Párrafos (p)
+    ===================================================== -->
+    <div id="colorPanel" class="color-panel hidden">
+
+        <!-- TÍTULO DEL PANEL -->
+        <h4>Personalizar sitio</h4>
+
+        <!-- MODOS DE CAMBIO GLOBAL -->
+        <div class="palette-modes">
+
+            <button type="button"
+                    class="mode-btn active"
+                    data-mode="bg">
+                Fondo
+            </button>
+
+            <button type="button"
+                    class="mode-btn"
+                    data-mode="h">
+                Títulos
+            </button>
+
+            <button type="button"
+                    class="mode-btn"
+                    data-mode="p">
+                Párrafos
+            </button>
+
+        </div>
+
+        <!-- PALETA DE COLORES -->
+        <div class="palette"></div>
+
+        <!-- SELECTOR LIBRE -->
+        <input type="color"
+               id="colorPicker"
+               aria-label="Selector de color personalizado">
+
+        <!-- CERRAR PANEL -->
+        <button type="button" id="closePalette">
+            Cerrar
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         PARTE 3 · PANEL BOTONES (EXCLUSIVO)
+         Afecta ÚNICAMENTE:
+         - Fondo de los botones
+         - Texto de los botones
+    ===================================================== -->
+    <div id="btnPanel" class="color-panel hidden">
+
+        <!-- TÍTULO -->
+        <h4>Personalizar botones</h4>
+
+        <!-- MODOS DE BOTONES -->
+        <div class="palette-modes">
+
+            <button type="button"
+                    class="mode-btn active"
+                    data-mode="btn-bg">
+                Fondo botón
+            </button>
+
+            <button type="button"
+                    class="mode-btn"
+                    data-mode="btn-text">
+                Texto botón
+            </button>
+
+        </div>
+
+        <!-- PALETA -->
+        <div class="palette"></div>
+
+        <!-- SELECTOR LIBRE -->
+        <input type="color"
+               id="btnColorPicker"
+               aria-label="Selector de color de botones">
+
+        <!-- CERRAR PANEL -->
+        <button type="button" id="closeBtnPalette">
+            Cerrar
+        </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         PARTE 4 · CONTENIDO
+         Recibe estilos, no controla nada
+    ===================================================== -->
+    <header class="profile-header">
+
+        <!-- PORTADA -->
+        <div class="profile-cover">
+            <img src="kaori1.jpg" alt="Portada">
+        </div>
+        <!-- PERFIL -->
+        <div class="profile-wrapper">
+
+            <!-- AVATAR -->
+            <div class="avatar-star">
+                <img src="kaori1.jpg" alt="Perfil">
+            </div>
+
+            <!-- TEXTO -->
+            <div class="profile-text">
+                <h1>Kaori</h1>
+                <p>Álbum de recuerdos</p>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- POST -->
+        <section class="post">
+            <h4>Publicación</h4>
+            <p>Sistema totalmente funcional.</p>
+        </section>
+
+        <!-- =====================================================
+         GALERÍA HORIZONTAL · Scroll estilo Facebook
+         Permite recorrer muchas imágenes desde derecha a izquierda
+    ===================================================== -->
+        <section class="album">
+            <h2>Galería</h2>
+
+            <!-- Carrusel de imágenes -->
+            <div class="photo-carousel">
+                <img src="kaori1.jpg" alt="Imagen 1">
+                <img src="kaori1.jpg" alt="Imagen 2">
+                <img src="kaori1.jpg" alt="Imagen 3">
+                <img src="kaori1.jpg" alt="Imagen 4">
+                <img src="kaori1.jpg" alt="Imagen 5">
+                <img src="kaori1.jpg" alt="Imagen 6">
+                <img src="kaori1.jpg" alt="Imagen 7">
+                <img src="kaori1.jpg" alt="Imagen 8">
+                <img src="kaori1.jpg" alt="Imagen 9">
+                <img src="kaori1.jpg" alt="Imagen 10">
+                <img src="kaori11.jpg" alt="Imagen 11">
+                <img src="kaori12.jpg" alt="Imagen 12">
+                <img src="kaori13.jpg" alt="Imagen 13">
+                <img src="kaori14.jpg" alt="Imagen 14">
+                <img src="kaori15.jpg" alt="Imagen 15">
+                <img src="kaori16.jpg" alt="Imagen 16">
+                <img src="kaori17.jpg" alt="Imagen 17">
+                <img src="kaori18.jpg" alt="Imagen 18">
+                <img src="kaori19.jpg" alt="Imagen 19">
+                <img src="kaori20.jpg" alt="Imagen 20">
+                <img src="kaori21.jpg" alt="Imagen 21">
+                <img src="kaori22.jpg" alt="Imagen 22">
+                <img src="kaori23.jpg" alt="Imagen 23">
+                <img src="kaori24.jpg" alt="Imagen 24">
+                <img src="kaori25.jpg" alt="Imagen 25">
+                <img src="kaori26.jpg" alt="Imagen 26">
+                <!-- Agrega más imágenes aquí -->
+            </div>
+        </section>
+
+    </main>
+    <!-- =====================================================
+       FOOTER · Contiene:
+         - Enlaces de contacto (correo)
+         - Botón a página personal
+         - Botón a menú
+         - Botón de retorno al inicio (#top)
+       Diseño moderno, botones con hover y responsive
+    ===================================================== -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <!-- Contacto -->
+            <div class="footer-links">
+                <a href="mailto:kurase7@gmail.com">✉ Correo</a>
+                <a target="_blank" href="pagina.html">🌐 Página personal</a>
+                <a target="_blank" href="menu.html">📋 Menú</a>
+            </div>
+
+            <hr>
+
+            <!-- Botón de retorno al inicio -->
+            <div class="footer-return">
+                <a class="btn-return" href="#top">⬆ Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =========================
+         SCRIPTS
+    ========================= -->
+    <script src="themes.js"></script>
+    <script src="gallery.js"></script>
+
+</body>
+</html>
