@@ -2,29 +2,71 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>ACCESS TERMINAL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkWell Principal</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="login-container">
-    <h1>Acceso</h1>
+    <!-- HEADER -->
+    <header id="header">
+        <img src="img/Kaori1.jpg" alt="Logo" class="logo">
+        <div class="login-container">
+            <h1>DarkWell</h1>
+            <label for="nombre">Usuario</label>
+            <input id="nombre" name="nombre" placeholder="Nombre" />
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" />
+            <button class="login-btn">Entrar</button>
+        </div>
+    </header>
 
-    <form id="loginForm">
-        <label>Usuario</label>
-        <input type="text" id="nombre" placeholder="Usuario" required>
+    <!-- TÍTULO PRINCIPAL -->
+    <main>
+        <center>
+            <h1 id="titulo">Fotos de mi <span class="accent">Hija</span></h1>
+            <hr>
+        </center>
 
-        <label>Contraseña</label>
-        <input type="password" id="contraseña" placeholder="Contraseña" required>
+        <!-- FORO / PUBLICACIONES -->
+        <section class="post-section">
+            <article class="post">
+                <h2>Foro</h2>
+                <p>Bienvenid@, este es un pequeño foro de recuerdos de mi Hija.</p>
+            </article>
+        </section>
 
-        <button type="submit">Ingresar</button>
-    </form>
+        <!-- GALERÍA PRINCIPAL -->
+        <section class="gallery-section">
+            <div class="photo-grid">
+                <img class="img" src="img/Kaori1.jpg" alt="Kaori1">
+                <img class="img" src="img/Kaori2.jpg" alt="Kaori2">
+                <img class="img" src="img/Kaori3.jpg" alt="Kaori3">
+                <img class="img" src="img/Kaori4.jpg" alt="Kaori4">
+                <img class="img" src="img/Kaori5.jpg" alt="Kaori5">
+            </div>
+            <div class="photo-grid">
+                <img class="img" src="img/Kaori6.jpg" alt="Kaori6">
+                <img class="img" src="img/Kaori7.jpeg" alt="Kaori7">
+                <img class="img" src="img/Kaori8.jpg" alt="Kaori8">
+                <img class="img" src="img/Kaori9.jpg" alt="Kaori9">
+                <img class="img" src="img/Kaori10.jpg" alt="Kaori10">
+            </div>
+        </section>
 
-    <p id="mensaje"></p>
-</div>
+    </main>
 
-<script src="js/animations.js"></script>
-<script src="js/login.js"></script>
+    <!-- FOOTER -->
+    <footer>
+        <center>
+            <a href="mailto:kurase7@gmail.com">Correo</a>
+            <p>Correo</p>
+            <a target="_blank" href="post.html">Página personal</a>
+            <hr>
+            <a class="retorno" href="#titulo">Inicio</a>
+        </center>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
