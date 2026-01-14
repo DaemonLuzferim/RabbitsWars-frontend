@@ -1,0 +1,15 @@
+my-website/
+│
+├─ backend/
+│   ├─ app.py
+│   ├─ requirements.txt
+│   └─ uploads/        # Carpeta donde se guardarán las imágenes subidas
+│
+├─ frontend/
+│   ├─ index.html
+│   ├─ style.css
+│   ├─ themes.js
+│   ├─ gallery.js
+│   └─ images/         # Imágenes fijas del frontend
+│
+└─ README.md

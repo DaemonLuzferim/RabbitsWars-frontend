@@ -1,0 +1,156 @@
+:root {
+    --bg: #050505;
+    --panel: #0b0b0b;
+    --border: #300;
+    --accent: crimson;
+    --text: #ddd;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+body {
+    background: radial-gradient(circle at top, #120000, #000);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: var(--panel);
+    border-bottom: 1px solid var(--border);
+}
+
+header .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px crimson;
+}
+
+/* LOGIN */
+.login-container {
+    background-color: var(--panel);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 220px;
+}
+
+.login-container h1 {
+    color: var(--accent);
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.login-container input {
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    background-color: #000;
+    color: var(--text);
+}
+
+.login-container button.login-btn {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 8px;
+    font-weight: bold;
+    border-radius: 6px;
+    border: none;
+    transition: 0.3s;
+}
+
+.login-container button.login-btn:hover {
+    background-color: #a00000;
+}
+
+/* TÍTULO PRINCIPAL */
+h1#titulo {
+    text-align: center;
+    margin: 20px 0 10px;
+    font-size: 2rem;
+}
+
+.accent {
+    color: rgb(9, 45, 187);
+}
+
+/* GALERÍA */
+.photo-grid {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.photo-grid img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+/* FORO / PUBLICACIONES */
+.post-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.post-section .post h2 {
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.post-section .post p {
+    color: #ccc;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--panel);
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+footer .retorno {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: crimson;
+    border-radius: 6px;
+    color: #fff;
+}
+
+footer .retorno:hover {
+    background-color: #a00000;
+}

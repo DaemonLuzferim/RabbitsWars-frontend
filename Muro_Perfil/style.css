@@ -1,0 +1,563 @@
+/* =====================================================
+   VARIABLES GLOBALES (CONTROLADAS POR themes.js)
+===================================================== */
+:root {
+    /* Fondo general */
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    /* Texto */
+    --h-color: #ffffff;
+    --p-color: #cccccc;
+    /* Botones */
+    --btn-color: #8b0000;
+    --btn-text: #ffffff;
+}
+
+
+/* =====================================================
+   RESET / BASE
+===================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--p-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--card);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+    .topbar .left {
+        display: flex;
+        gap: 8px;
+    }
+
+
+
+/* =====================================================
+   BOTONES (DINÁMICOS)
+===================================================== */
+button {
+    background: var(--btn-color);
+    color: var(--btn-text);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+    button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 16px rgba(0,0,0,.35);
+        opacity: .95;
+    }
+
+    button:active {
+        transform: scale(.97);
+    }
+
+/* =====================================================
+   TEXTOS DINÁMICOS GLOBALES
+===================================================== */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--h-color);
+}
+
+p {
+    color: var(--p-color);
+}
+/* =====================================================
+   PERFIL · HEADER
+===================================================== */
+.profile-header {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   PERFIL · PORTADA
+   - Ocupa todo el ancho
+   - Prioriza la parte superior
+   - Preparada para mover imagen verticalmente
+===================================================== */
+.profile-cover {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* La imagen dentro se ajusta automáticamente */
+    .profile-cover img {
+        width: 100%;
+        height: auto; /* se ajusta según la proporción */
+        max-height: 400px; /* límite de altura en escritorio */
+        display: block;
+        filter: brightness(0.6);
+        object-fit: cover; /* mantiene proporción y cubre el contenedor */
+    }
+
+/* =====================================================
+   PERFIL · CONTENEDOR GENERAL
+===================================================== */
+.profile-wrapper {
+    text-align: center;
+    margin-top: -65px; /* Superposición correcta */
+    padding-bottom: 16px;
+    position: relative;
+    z-index: 2;
+}
+
+/* =====================================================
+   PERFIL · AVATAR EN ESTRELLA
+===================================================== */
+.avatar-star {
+    width: 130px; /* MÁS GRANDE */
+    height: 130px;
+    margin: 0 auto;
+    background: var(--btn-color);
+    padding: 6px;
+    clip-path: polygon( 50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35% );
+    position: relative;
+    z-index: 3;
+}
+
+    /* Imagen interna del avatar */
+    .avatar-star img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        clip-path: inherit;
+    }
+
+/* =====================================================
+   PERFIL · TEXTO
+===================================================== */
+.profile-text h1 {
+    margin: 10px 0 0;
+    color: var(--h-color);
+}
+
+.profile-text p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: var(--p-color);
+}
+
+/* =====================================================
+   CONTENIDO GENERAL
+===================================================== */
+.container {
+    padding: 16px;
+}
+
+.post,
+.album {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+/* =====================================================
+   GALERÍA · CARRUSEL HORIZONTAL DESLIZABLE
+   Compatible con muchas imágenes
+   Se arrastra como Facebook, inicia desde la derecha
+===================================================== */
+.photo-carousel {
+    display: flex; /* imágenes en fila */
+    gap: 12px; /* espacio entre imágenes */
+    overflow-x: auto; /* scroll horizontal */
+    scroll-behavior: smooth; /* movimiento suave */
+    padding: 10px;
+    cursor: grab; /* indicador de arrastre */
+    user-select: none; /* evita selección al arrastrar */
+    -webkit-overflow-scrolling: touch; /* smooth touch scroll en móviles */
+    direction: ltr; /* mantiene el orden natural de las imágenes */
+}
+
+    .photo-carousel.active {
+        cursor: grabbing; /* cambia el cursor al arrastrar */
+    }
+
+    /* scrollbar elegante */
+    .photo-carousel::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .photo-carousel::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.05);
+        border-radius: 4px;
+    }
+
+    .photo-carousel::-webkit-scrollbar-thumb {
+        background: var(--btn-color);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+    }
+
+        .photo-carousel::-webkit-scrollbar-thumb:hover {
+            background: var(--btn-text);
+        }
+
+    /* estilo de cada imagen */
+    .photo-carousel img {
+        flex: 0 0 auto; /* no se encogen ni expanden */
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+    }
+
+        .photo-carousel img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+        }
+
+/* =====================================================
+   PANEL DE COLORES (AMBOS)
+===================================================== */
+.color-panel {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    padding: 16px;
+    width: 280px;
+    border-radius: 16px;
+    z-index: 9999; /* SIEMPRE SOBRE TODO */
+    box-shadow: 0 18px 45px rgba(0,0,0,.65);
+}
+
+.hidden {
+    display: none;
+}
+
+/* =====================================================
+   PANEL · MODOS
+===================================================== */
+.palette-modes {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.mode-btn {
+    flex: 1;
+    font-size: 13px;
+    background: #2b2b2b;
+    color: #bbb;
+}
+
+    .mode-btn.active {
+        background: var(--btn-color);
+        color: var(--btn-text);
+    }
+
+/* =====================================================
+   DROPDOWNS · BOTONES PRINCIPALES CON SUB-BOTONES
+===================================================== */
+
+/* Contenedor de todos los dropdowns en fila */
+.top-dropdowns {
+    display: flex;
+    gap: 10px; /* espacio entre botones */
+    flex-wrap: wrap; /* baja a siguiente línea si no cabe */
+    margin: 10px 0;
+}
+
+/* Contenedor de cada dropdown individual */
+.dropdown-btn {
+    position: relative;
+    display: inline-block;
+}
+
+/* Contenido oculto por defecto */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* justo debajo del botón principal */
+    left: 0;
+    background: var(--card);
+    padding: 6px 0;
+    border-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.35);
+    z-index: 10;
+    min-width: 150px;
+}
+/* Mostrar al pasar el mouse */
+.dropdown-btn:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo de todos los sub-botones */
+.dropdown-content button {
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 6px 12px;
+    background: var(--btn-color);
+    color: var(--btn-text);
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+    .dropdown-content button:hover {
+        transform: translateX(3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,.45);
+        opacity: .95;
+    }
+
+    .dropdown-content button:active {
+        transform: scale(.97);
+    }
+/* =====================================================
+   BOTÓN LOGIN ELEGANTE
+===================================================== */
+.login-btn {
+    background: linear-gradient(135deg, #6a5af9, #ff6ec4); /* degradado elegante */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5), 0 0 10px rgba(106,90,249,0.5);
+    position: relative;
+}
+
+    /* Hover elegante */
+    .login-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 20px rgba(106,90,249,0.7), 0 0 30px rgba(255,110,196,0.5);
+    }
+
+    /* Efecto after para resplandor animado */
+    .login-btn::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 16px;
+        background: linear-gradient(45deg, #6a5af9, #ff6ec4, #4ade80, #ffcc00);
+        z-index: -1;
+        opacity: 0.3;
+        filter: blur(12px);
+        transition: all 0.3s ease;
+    }
+
+    .login-btn:hover::after {
+        opacity: 0.6;
+        filter: blur(20px);
+    }
+
+
+/* =====================================================
+   PALETA DE COLORES
+===================================================== */
+.palette {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.color-swatch {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    .color-swatch:hover {
+        transform: scale(1.15);
+        box-shadow: 0 4px 12px rgba(0,0,0,.45);
+    }
+/* =====================================================
+   LOGO ELEGANTE
+===================================================== */
+.logo {
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #ff6ec4, #7873f5, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: default;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+    /* Efecto al pasar el mouse */
+    .logo:hover {
+        transform: scale(1.1) rotate(-2deg);
+        text-shadow: 0 4px 12px rgba(0,0,0,0.7), 0 0 10px rgba(255,255,255,0.2);
+    }
+/* =====================================================
+   FOOTER
+===================================================== */
+.site-footer {
+    background: var(--card);
+    padding: 20px 16px;
+    text-align: center;
+    color: var(--p-color);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+    .footer-links a {
+        color: var(--btn-text);
+        background: var(--btn-color);
+        padding: 8px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+        .footer-links a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+/* Botón de retorno al inicio */
+.footer-return .btn-return {
+    display: inline-block;
+    background: linear-gradient(135deg, #6a5af9, #ff6ec4);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+    .footer-return .btn-return:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 0 10px rgba(106,90,249,0.7);
+    }
+
+/* =====================================================
+   RESPONSIVE · PORTADA Y AVATAR
+   ===================================================== */
+
+/* Móvil (hasta 600px) */
+@media (max-width: 600px) {
+    .profile-cover img {
+        max-height: 250px; /* portada más baja en móviles */
+    }
+
+    .avatar-star {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile-text h1 {
+        font-size: 18px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .topbar {
+        padding: 8px 12px;
+    }
+
+    button {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .color-panel {
+        width: 90%;
+        max-width: 360px;
+    }
+}
+
+/* Tablet (601px - 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+    .profile-cover img {
+        max-height: 300px; /* portada más alta que móvil */
+    }
+
+    .avatar-star {
+        width: 85px;
+        height: 85px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Desktop (901px - 1200px) */
+@media (min-width: 901px) and (max-width: 1200px) {
+    .profile-cover img {
+        max-height: 400px; /* altura ideal para desktop normal */
+    }
+
+    .avatar-star {
+        width: 130px;
+        height: 130px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* PC grande (>1200px) */
+@media (min-width: 1201px) {
+    .profile-cover img {
+        max-height: 500px; /* un poco más grande en pantallas enormes */
+    }
+
+    .avatar-star {
+        width: 150px;
+        height: 150px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
